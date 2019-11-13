@@ -3,7 +3,7 @@ easy_admin:
        # List the entity class name you want to manage
         - App\Entity\Article
         - App\Entity\Categorie
-        - App\Entity\Commentaire 
+#        - App\Entity\Commentaire 
         - App\Entity\Livres
 #       - App\Entity\Category
 #       - App\Entity\User
