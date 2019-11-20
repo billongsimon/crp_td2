@@ -49,5 +49,8 @@ class BlogController extends AbstractController
         return $this->render('blog/show.html.twig', [
             'article'=>$article
         ]);
+        return $this->render('blog/utilisateur.html.twig', [
+            'formCreatUtilisateur' => $form->createView()
+        ]);
     }
 }
