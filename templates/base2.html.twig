@@ -2,49 +2,82 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Shop store{% endblock %}</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-    <div class = "jumbotron">
-       <article>
-            <h1> Ma Page administratuur </h1>
-            </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-           
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <title>{% block title %}Access Logement!{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheets"  href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css">     
+Categorie
 
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('blog') }} ">Articles</a>
-                    </li>  
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href=" ">Categorie</a>
-                    </li> 
-                           <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href=" ">Commentaires</a>
-                    </li> 
-                     <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                  <a class="nav-link" href=" ">utilisateurs</a>
-                    </li>   
-            </div>
-        </nav>
-        <div class="container">
-            {% block body %}{% endblock %}
-        </div>
+
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Billong</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path('admin')}}">Admin <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Systeme</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Utilisateurs</a>
+      </li>
+      <li class="nav-item">
+        <a href=" class="nav-link" href="#">Categorie</a>
+      </li>
+      <li class="nav-item">
+        <a href="" class="nav-link" href="#">Articles</a>
+      </li> 
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+        {% block body %}
+
+
+        
+        {% endblock %}
+
+        {% block footer %}
+
+            <div class="row bg-dark" >
+                <div class="col-sm-6 ">
+                  <div class="card">
+                    <div class="card-body bg-dark">
+                      <h5 class="card-title text-light">A propos de l'Agence</h5>
+                      <p class="card-text text-light">
+                            24-26 bd Chastenet de Géry </br>
+                            94814 Villejuif Cedex </br>
+                            Tél : 01 46 78 01 00 </br>
+                            Fax : 01 46 78 50 35 </br>
+                            paulguinot@guinot.asso.fr
+                      </p>
+                      <a href="#" class="btn btn-primary">Mapper notre Agence !</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <div class="card-body bg-info">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Mapper notre Agence !</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        {% endblock %}
+
+        
+
         {% block javascripts %}{% endblock %}
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     </body>
 </html>
