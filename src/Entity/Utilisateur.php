@@ -27,7 +27,7 @@ class Utilisateur
     private $prenom;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
     private $date_naissance;
 
@@ -35,6 +35,31 @@ class Utilisateur
      * @ORM\Column(type="string", length=255)
      */
     private $mail;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $login;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mot_passe;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $date_location;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $duree;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $fin_location;
 
     public function getId(): ?int
     {
@@ -65,12 +90,12 @@ class Utilisateur
         return $this;
     }
 
-    public function getDateNaissance(): ?int
+    public function getDateNaissance(): ?string
     {
         return $this->date_naissance;
     }
 
-    public function setDateNaissance(int $date_naissance): self
+    public function setDateNaissance(string $date_naissance): self
     {
         $this->date_naissance = $date_naissance;
 
@@ -85,6 +110,66 @@ class Utilisateur
     public function setMail(string $mail): self
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getLogin(): ?string
+    {
+        return $this->login;
+    }
+
+    public function setLogin(string $login): self
+    {
+        $this->login = $login;
+
+        return $this;
+    }
+
+    public function getMotPasse(): ?string
+    {
+        return $this->mot_passe;
+    }
+
+    public function setMotPasse(string $mot_passe): self
+    {
+        $this->mot_passe = $mot_passe;
+
+        return $this;
+    }
+
+    public function getDateLocation(): ?int
+    {
+        return $this->date_location;
+    }
+
+    public function setDateLocation(int $date_location): self
+    {
+        $this->date_location = $date_location;
+
+        return $this;
+    }
+
+    public function getDuree(): ?int
+    {
+        return $this->duree;
+    }
+
+    public function setDuree(int $duree): self
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    public function getFinLocation(): ?int
+    {
+        return $this->fin_location;
+    }
+
+    public function setFinLocation(int $fin_location): self
+    {
+        $this->fin_location = $fin_location;
 
         return $this;
     }

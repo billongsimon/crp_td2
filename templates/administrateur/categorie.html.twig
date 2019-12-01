@@ -1,0 +1,33 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Liste des categorie{% endblock %}
+
+{% block body %}
+     
+
+<a href="{{path('admin.form.categorie')}}" class="btn btn-primary"> nouvel categorie </a>                                              
+<table>
+<tr>
+<th>id</th>
+<th>titre</th>
+<th>resume</th>
+</tr>
+
+        {% for categorie in categories %}
+<tr>
+<td>{{categorie.id}}</td>
+<td>{{categorie.titre}}</td>
+<td>{{categorie.resume}}</td>
+    <td><a href="{{path('admin.categorie.modif', {'id':categorie.id})}}" class="btn btn-info"> modifier </a></td>                                              
+<td><a href="{{path('admin.categorie.sup', {'id':categorie.id})}}" class="btn btn-danger"> Supprimer </a></td>                                              
+                </tr>
+            
+        {% endfor %}
+            </table>            
+        
+        </div>
+
+<div class="navigation">
+    {{ knp_pagination_render(categories) }}
+</div>
+{% endblock %}

@@ -5,11 +5,13 @@
         <title>{% block title %}Access Logement!{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheets"  href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css">     
-Categorie
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
 
 
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Billong</a>
+  <a class="navbar-brand" href="#">sbillong</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,14 +25,14 @@ Categorie
         <a class="nav-link" href="#">Systeme</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Utilisateurs</a>
+      <a href="{{path('admin.utilisateur')}}" class="nav-link" href="#">Utilisateurs</a>
       </li>
       <li class="nav-item">
-        <a href=" class="nav-link" href="#">Categorie</a>
+        <a href="{{path('admin.categorie')}}" class="nav-link" href="#">Categorie</a>
       </li>
       <li class="nav-item">
-        <a href="" class="nav-link" href="#">Articles</a>
-      </li> 
+        <a href="{{path('admin.article')}}" class="nav-link" href="#">Articles</a>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
