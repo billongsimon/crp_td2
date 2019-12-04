@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}   
+         
+{% form_theme formCategorie 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<div class = "jumbotron">
+ <article>
+    <h2> ajouter une   categorie </h2>
+            
+       </article>      
+</div>
+
+
+{{ form_start(formUsers) }}
+
+{{ form_widget(formUsers) }}
+<button type="submit" class="btn btn-success">envoyer</button>
+{{ form_end(formUsers) }}
+
+{% endblock %}
+
+
