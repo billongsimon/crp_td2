@@ -2,26 +2,33 @@
 
 {% block title %}Liste des Biens!{% endblock %}
 
+{% form_theme formCreatArt 'bootstrap_4_layout.html.twig' %}
+
 {% block body %}
 
 <div class = "jumbotron">
        <article>
-            <h2> NOUVEL ARTICLE </h2>
+            <h2> FORMULAIRE D'ENREGISTREMENT DE NOUVEL ARTICLE </h2>
             <div class = "metadata"> 
                 <p>Ecrit le:  21/10/2019 </p>
                 <p> Dans la Categorie: </p>
-            </div>
-
-             <div class = "content">
-
-                 
-                  
-            </div>          
+            </div>         
        </article>      
-
-    
-<div class="container">
-On Demarre
 </div>
+<div class="container">
+
+
+{# {{ form_widget(formCreatArt) }} #}
+
+{{ form_start(formCreatArt) }}
+
+    {{ form_widget(formCreatArt) }}
+
+ <button type="submit" class="btn btn-success"> Ajouter cet article</button>
+
+ {{ form_end(formCreatArt) }}
+
+</div>
+
 
 {% endblock %}
