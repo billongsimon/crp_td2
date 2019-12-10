@@ -3,11 +3,18 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class Users
+
+class Users implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -18,49 +25,57 @@ class Users
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=50, minMessage = "Votre username doit aoir plus de 2 caractères")            
      */
-    private $name;
+    private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    private $mail;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=50, minMessage = "le login doit être plus de 2 caractères")            
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=6, max=20, minMessage = "votre passe word doit avoir plus de 5 caractères")            
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $roles;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getUsername(): ?string
     {
-        return $this->name;
+        return $this->username;
     }
 
-    public function setName(string $name): self
+    public function setUsername(string $username): self
     {
-        $this->name = $name;
+        $this->username = $username;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getMail(): ?string
     {
-        return $this->email;
+        return $this->mail;
     }
 
-    public function setEmail(string $email): self
+    public function setMail(string $mail): self
     {
-        $this->email = $email;
+        $this->mail = $mail;
 
         return $this;
     }
@@ -82,10 +97,74 @@ class Users
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassWord(string $password): self
     {
         $this->password = $password;
 
         return $this;
     }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(string $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+    
+          /**
+           * eraseCredentials
+           * @return void
+           */
+          public function eraseCredentials()
+          {
+              
+          }
+      
+      
+          /**
+           * getSalt
+           *
+           * @return string | null
+           */
+          public function getSalt()
+          {
+              return null;
+      
+          }
+      
+          
+      	/** @see \Serializable::serialize() */
+          public function serialize()
+          {
+              return serialize([
+                  $this->id,
+                  $this->username,
+                  $this->password,
+                  // see section on salt below
+                  // $this->salt,
+              ]);
+          }
+      
+       
+          /**
+           * unserialize
+           * @param  mixed $serialized
+           * @return void
+           */
+          public function unserialize($serialized)
+          {
+              list (
+                  $this->id,
+                  $this->username,
+                  $this->password,
+                  // see section on salt below
+                  // $this->salt
+              ) = unserialize($serialized, ['allowed_classes' => false]);
+          }
 }
+
